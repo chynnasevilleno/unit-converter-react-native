@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from "react-native";
 import MenuButton from "../components/MenuButton";
 import { Dropdown } from 'react-native-material-dropdown';
-
+import styles from './Styles'
 
 // Variables
 let gramToKilogram = 1000; // gram / 1000 = kg & kg * 1000 = grams
@@ -28,7 +28,7 @@ export default class MassScreen extends React.Component {
     super(props);
     this.state = {
         fromMassUnitText: "",
-        toMassUnitText: "1",
+        toMassUnitText: "",
         fromMassUnitDropdown: "",
         toMassUnitDropdown: "",
     }
@@ -98,7 +98,7 @@ export default class MassScreen extends React.Component {
             </View>
             <View style={styles.resetButton}>
               <TouchableOpacity
-                onPress={() => this.clear()}
+                onPress={() => this.reset()}
                 >
                 <View>
                   <Text>Reset</Text>
@@ -111,7 +111,7 @@ export default class MassScreen extends React.Component {
   }
 
   onCovertButtonClicked(){
-    alert("Successfully Converted"); // debugging
+    //alert("Successfully Converted"); // debugging
 
     fromMassUnit = this.state.fromMassUnitDropdown;
     fromMassUnitValue = this.state.fromMassUnitText;
@@ -184,64 +184,11 @@ export default class MassScreen extends React.Component {
     this.setState({toMassUnitText: convertedValue});
   }
 
+  reset(){
+    this.setState({
+      fromMassUnitText: "",
+      toMassUnitText: "",
+    });
+  }
   
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  zIndex:{
-    zIndex: 100,
-  },
-  header: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 20,
-    textTransform: 'capitalize',
-    color: '#2F364D',
-    fontWeight: 'bold',
-    zIndex: 1,
-  },
-  headerText:{
-    fontSize: 20,
-    textTransform: 'capitalize',
-    color: '#2F364D',
-    fontWeight: 'bold',
-    zIndex: 1,
-  },
-  fromUnitContainer: {
-    flex: 3,
-    flexDirection: "column",
-    backgroundColor: "white",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    paddingHorizontal: 40,
-    zIndex: 1,
-  },
-  textInput:{
-    backgroundColor: '#F4F5F7',
-    borderRadius: 4,
-    height: 50,
-    padding: 5,
-    zIndex: 1,
-  },
-  toUnitContainer: {
-    flex: 3,
-    flexDirection: "column",
-    backgroundColor: "white",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    paddingHorizontal: 40,
-  },
-  buttonsContainer: {
-    flex: 2,
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center"
-  },
-  content: {
-    alignSelf: 'stretch',
-  },
-});

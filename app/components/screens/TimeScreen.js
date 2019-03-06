@@ -2,12 +2,11 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from "react-native";
 import MenuButton from "../components/MenuButton";
 import { Dropdown } from 'react-native-material-dropdown';
-
+import styles from './Styles'
 
 // Variables
 let secondsMinutes = 60;
 let hoursDays = 24;
-
 
 //Dropdown array
 let timeData = [{
@@ -56,7 +55,6 @@ export default class TimeScreen extends React.Component {
             <TextInput
               style={styles.textInput}
               keyboardType="numeric"
-              clearTextOnFocus={true}
               placeholder="Enter value to convert from"
               value={this.state.fromTimeUnitText}
               onChangeText={(unitValue) => this.setState({fromTimeUnitText:unitValue})}
@@ -95,7 +93,7 @@ export default class TimeScreen extends React.Component {
           </View>
           <View style={styles.resetButton}>
             <TouchableOpacity
-              onPress={() => this.clear()}
+              onPress={() => this.reset()}
               >
               <View>
                 <Text>Reset</Text>
@@ -108,7 +106,7 @@ export default class TimeScreen extends React.Component {
   }
 
   onCovertButtonClicked(){
-    alert(this.state.fromTimeUnitDropdown +" "+this.state.fromTimeUnitText); // debugging
+    //alert("Successfully Converted"); // debugging
 
     fromTimeUnit = this.state.fromTimeUnitDropdown;
     fromTimeUnitValue = this.state.fromTimeUnitText;
@@ -180,57 +178,16 @@ export default class TimeScreen extends React.Component {
       convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(hoursDays);
       convertedValue = convertedValue.toString();
     }
+    else{
+      convertedValue = fromTimeUnitValue;
+    }
+
+    this.setState({toMassUnitText: convertedValue});
+  }
+  reset(){
+    this.setState({
+      fromMassUnitText: "",
+      toMassUnitText: "",
+    });
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  header: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 20,
-    textTransform: 'capitalize',
-    color: '#2F364D',
-    fontWeight: 'bold'
-  },
-  headerText:{
-    fontSize: 20,
-    textTransform: 'capitalize',
-    color: '#2F364D',
-    fontWeight: 'bold'
-  },
-  fromUnitContainer: {
-    flex: 3,
-    flexDirection: "column",
-    backgroundColor: "white",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    paddingHorizontal: 40,
-  },
-  textInput:{
-    backgroundColor: '#F4F5F7',
-    borderRadius: 4,
-    height: 50,
-    padding: 5,
-  },
-  toUnitContainer: {
-    flex: 3,
-    flexDirection: "column",
-    backgroundColor: "white",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    paddingHorizontal: 40,
-  },
-  buttonsContainer: {
-    flex: 2,
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center"
-  },
-  content: {
-    alignSelf: 'stretch',
-  },
-});
