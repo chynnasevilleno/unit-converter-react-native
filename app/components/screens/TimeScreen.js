@@ -183,6 +183,8 @@ export default class TimeScreen extends React.Component {
     }
 
     this.setState({toMassUnitText: convertedValue});
+
+    alert("Successfully Converted"); // debugging
   }
   
   reset(){

@@ -72,6 +72,7 @@ export default class LengthScreen extends React.Component {
                 data={lengthData}
                 rippleCentered={true}
                 itemPadding={10}
+                onChangeText={(value) => this.setState({toLengthUnitDropdown:value})}
             />
           </View>
           <View style={styles.content}>
@@ -112,80 +113,81 @@ export default class LengthScreen extends React.Component {
   onCovertButtonClicked(){
     //alert("Successfully Converted"); // debugging
     
-    fromLengthUnit = this.state.fromTimeUnitDropdown;
-    fromLengthUnitValue = this.state.fromTimeUnitText;
-    toLengthUnit = this.state.toTimeUnitDropdown;
+    fromLengthUnit = this.state.fromLengthUnitDropdown;
+    fromLengthUnitValue = this.state.fromLengthUnitText;
+    toLengthUnit = this.state.toLengthUnitDropdown;
 
-    if(fromTimeUnit == 'Meter' && toTimeUnit == 'Kilometer'){
+    if(fromLengthUnit == 'Meter' && toLengthUnit == 'Kilometer'){
       //1
-      convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(meterKilometer);
+      convertedValue = parseFloat(fromLengthUnitValue) / parseFloat(meterKilometer);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Kilometer' && toTimeUnit == 'Meter'){
+    else if(fromLengthUnit == 'Kilometer' && toLengthUnit == 'Meter'){
       //2
-      convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(meterKilometer);
+      convertedValue = parseFloat(fromLengthUnitValue) * parseFloat(meterKilometer);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Meter' && toTimeUnit == 'Foot'){
+    else if(fromLengthUnit == 'Meter' && toLengthUnit == 'Foot'){
       //3
-      convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(meterFoot);
+      convertedValue = parseFloat(fromLengthUnitValue) * parseFloat(meterFoot);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Foot' && toTimeUnit == 'Meter'){
+    else if(fromLengthUnit == 'Foot' && toLengthUnit == 'Meter'){
       //4
-      convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(meterFoot);
+      convertedValue = parseFloat(fromLengthUnitValue) / parseFloat(meterFoot);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Meter' && toTimeUnit == 'Inch'){
+    else if(fromLengthUnit == 'Meter' && toLengthUnit == 'Inch'){
       //5
-      convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(meterInch);
+      convertedValue = parseFloat(fromLengthUnitValue) * parseFloat(meterInch);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Inch' && toTimeUnit == 'Meter'){
+    else if(fromLengthUnit == 'Inch' && toLengthUnit == 'Meter'){
       //6
-      convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(meterInch);
+      convertedValue = parseFloat(fromLengthUnitValue) / parseFloat(meterInch);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Kilometer' && toTimeUnit == 'Foot'){
+    else if(fromLengthUnit == 'Kilometer' && toLengthUnit == 'Foot'){
       //7
-      convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(kilometerFoot);
+      convertedValue = parseFloat(fromLengthUnitValue) * parseFloat(kilometerFoot);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Foot' && toTimeUnit == 'Kilometer'){
+    else if(fromLengthUnit == 'Foot' && toLengthUnit == 'Kilometer'){
       //8
-      convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(kilometerFoot);
+      convertedValue = parseFloat(fromLengthUnitValue) / parseFloat(kilometerFoot);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Kilometer' && toTimeUnit == 'Inch'){
+    else if(fromLengthUnit == 'Kilometer' && toLengthUnit == 'Inch'){
       //9
-      convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(kilometerInch);
+      convertedValue = parseFloat(fromLengthUnitValue) * parseFloat(kilometerInch);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Inch' && toTimeUnit == 'Kilometer'){
+    else if(fromLengthUnit == 'Inch' && toLengthUnit == 'Kilometer'){
       //10
-      convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(kilometerInch);
+      convertedValue = parseFloat(fromLengthUnitValue) / parseFloat(kilometerInch);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Foot' && toTimeUnit == 'Inch'){
+    else if(fromLengthUnit == 'Foot' && toLengthUnit == 'Inch'){
       //11
-      convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(footInch);
+      convertedValue = parseFloat(fromLengthUnitValue) * parseFloat(footInch);
       convertedValue = convertedValue.toString();
     }
-    else if(fromTimeUnit == 'Inch' && toTimeUnit == 'Foot'){
+    else if(fromLengthUnit == 'Inch' && toLengthUnit == 'Foot'){
       //12
-      convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(footInch);
+      convertedValue = parseFloat(fromLengthUnitValue) / parseFloat(footInch);
       convertedValue = convertedValue.toString();
     }
     else{
-      convertedValue = fromTimeUnitValue;
+      convertedValue = fromLengthUnitValue;
     }
+    this.setState({toLengthUnitText: convertedValue});
 
-    this.setState({toMassUnitText: convertedValue});
+    alert("Successfully Converted"); // debugging
   }
   reset(){
     this.setState({
-      fromMassUnitText: "",
-      toMassUnitText: "",
+      fromLengthUnitText: "",
+      toLengthUnitText: "",
     });
   }
 }
