@@ -37,11 +37,11 @@ export default class LengthScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <MenuButton navigation={this.props.navigation} />
 
         {/* Header View */}
         <View style={styles.header}>
           <Text styles={styles.headerText}>Unit Conversion: Length</Text>
+          <MenuButton navigation={this.props.navigation} />
         </View>
 
         {/* Conversion View */}
@@ -49,7 +49,7 @@ export default class LengthScreen extends React.Component {
           <View style={styles.content}>
             <Dropdown
                 label=''
-                data={massData}
+                data={lengthData}
                 rippleCentered={true}
                 itemPadding={10}
                 onChangeText={(value) => this.setState({fromLengthUnitDropdown:value})}
@@ -69,7 +69,7 @@ export default class LengthScreen extends React.Component {
           <View style={styles.content}>
             <Dropdown
                 label=''
-                data={massData}
+                data={lengthData}
                 rippleCentered={true}
                 itemPadding={10}
             />
@@ -176,6 +176,10 @@ export default class LengthScreen extends React.Component {
       convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(footInch);
       convertedValue = convertedValue.toString();
     }
+    else{
+      convertedValue = fromTimeUnitValue;
+    }
+
     this.setState({toMassUnitText: convertedValue});
   }
   reset(){

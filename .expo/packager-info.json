@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 26794,
-  "expoServerNgrokUrl": "https://yv-qsh.anonymous.unit-converter.exp.direct",
-  "packagerNgrokUrl": "https://packager.yv-qsh.anonymous.unit-converter.exp.direct",
-  "ngrokPid": 26810
+  "packagerPid": 735,
+  "expoServerNgrokUrl": "https://yv-qsh.anonymous.unit-converter-react-native.exp.direct",
+  "packagerNgrokUrl": "https://packager.yv-qsh.anonymous.unit-converter-react-native.exp.direct",
+  "ngrokPid": 756,
+  "webpackServerPort": null
 }
