@@ -69,6 +69,7 @@ export default class TimeScreen extends React.Component {
                 data={timeData}
                 rippleCentered={true}
                 itemPadding={10}
+                onChangeText={(value) => this.setState({toTimeUnitDropdown:value})}
             />
           </View>
           <View style={styles.content}>
@@ -105,22 +106,22 @@ export default class TimeScreen extends React.Component {
       </View>
     );
   }
-
+  
   onCovertButtonClicked(){
-    alert(this.state.fromTimeUnitDropdown +" "+this.state.fromTimeUnitText); // debugging
 
     fromTimeUnit = this.state.fromTimeUnitDropdown;
     fromTimeUnitValue = this.state.fromTimeUnitText;
     toTimeUnit = this.state.toTimeUnitDropdown;
+    convertedValue = 0;
 
     if(fromTimeUnit == 'Seconds' && toTimeUnit == 'Minutes'){
       //1
-      convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(gramToKilogram);
+      convertedValue = parseFloat(fromTimeUnitValue) / parseFloat(secondsMinutes);
       convertedValue = convertedValue.toString();
     }
     else if(fromTimeUnit == 'Minutes' && toTimeUnit == 'Seconds'){
       //2
-      convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(gramToKilogram);
+      convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(secondsMinutes);
       convertedValue = convertedValue.toString();
     }
     else if(fromTimeUnit == 'Seconds' && toTimeUnit == 'Hours'){
@@ -179,7 +180,10 @@ export default class TimeScreen extends React.Component {
       convertedValue = parseFloat(fromTimeUnitValue) * parseFloat(hoursDays);
       convertedValue = convertedValue.toString();
     }
+    this.setState({toTimeUnitText: convertedValue});
   }
+
+  
 }
 
 const styles = StyleSheet.create({
