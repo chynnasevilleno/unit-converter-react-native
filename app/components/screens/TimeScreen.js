@@ -35,7 +35,12 @@ export default class TimeScreen extends React.Component {
       <View style={styles.container}>
         {/* Header View */}
         <View style={styles.header}>
-          <Text styles={styles.headerText}>Unit Conversion: Time</Text>
+        <Text style={{fontSize: 20,
+            textTransform: 'capitalize',
+            color: '#2F364D',
+            fontWeight: 'bold',
+            zIndex: 1,
+            paddingTop: 20,}}>Unit Conversion: Time</Text>
           <MenuButton navigation={this.props.navigation} />
         </View>
 
@@ -186,7 +191,7 @@ export default class TimeScreen extends React.Component {
 
     alert("Successfully Converted"); // debugging
   }
-  
+
   reset(){
     this.setState({
       fromMassUnitText: "",

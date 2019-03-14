@@ -10,7 +10,7 @@ let meterFoot = 3.281; // metre * 3.281
 let meterInch = 39.37; // metre * 39.37
 let kilometerFoot = 3280.84; // kilometer * 3280.84
 let kilometerInch = 39370.079; // kilometer * 39370.079
-let footInch = 2; // foot * 12
+let footInch = 12; // foot * 12
 
 //Dropdown array
 let lengthData = [{
@@ -40,7 +40,12 @@ export default class LengthScreen extends React.Component {
 
         {/* Header View */}
         <View style={styles.header}>
-          <Text styles={styles.headerText}>Unit Conversion: Length</Text>
+        <Text style={{fontSize: 20,
+            textTransform: 'capitalize',
+            color: '#2F364D',
+            fontWeight: 'bold',
+            zIndex: 1,
+            paddingTop: 20,}}>Unit Conversion: Length</Text>
           <MenuButton navigation={this.props.navigation} />
         </View>
 

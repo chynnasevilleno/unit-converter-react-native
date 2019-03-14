@@ -18,7 +18,7 @@ export default StyleSheet.create({
         zIndex: 1,
       },
       headerText:{
-        fontSize: 20,
+        fontSize: 100,
         textTransform: 'capitalize',
         color: '#2F364D',
         fontWeight: 'bold',

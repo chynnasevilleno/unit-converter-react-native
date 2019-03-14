@@ -1,7 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from "react-native";
 import MenuButton from "../components/MenuButton";
-import { Dropdown } from 'react-native-material-dropdown';
+import { Dropdown } from 'react-native-material-dropdown';  
+import styles from './Styles'
 
 
 // Variables
@@ -28,7 +29,7 @@ export default class MassScreen extends React.Component {
     super(props);
     this.state = {
         fromMassUnitText: "",
-        toMassUnitText: "1",
+        toMassUnitText: "",
         fromMassUnitDropdown: "",
         toMassUnitDropdown: "",
     }
@@ -38,7 +39,12 @@ export default class MassScreen extends React.Component {
     return (
       <View style={styles.container}>
           <View style={styles.header}>
-            <Text styles={styles.headerText}>Unit Conversion: Mass </Text>
+            <Text style={{fontSize: 20,
+            textTransform: 'capitalize',
+            color: '#2F364D',
+            fontWeight: 'bold',
+            zIndex: 1,
+            paddingTop: 20,}}>Unit Conversion: Mass </Text>
             <MenuButton navigation={this.props.navigation} />
           </View>
 
@@ -185,62 +191,3 @@ export default class MassScreen extends React.Component {
 
   
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  zIndex:{
-    zIndex: 100,
-  },
-  header: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 20,
-    textTransform: 'capitalize',
-    color: '#2F364D',
-    fontWeight: 'bold',
-    zIndex: 1,
-  },
-  headerText:{
-    fontSize: 20,
-    textTransform: 'capitalize',
-    color: '#2F364D',
-    fontWeight: 'bold',
-    zIndex: 1,
-  },
-  fromUnitContainer: {
-    flex: 3,
-    flexDirection: "column",
-    backgroundColor: "white",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    paddingHorizontal: 40,
-    zIndex: 1,
-  },
-  textInput:{
-    backgroundColor: '#F4F5F7',
-    borderRadius: 4,
-    height: 50,
-    padding: 5,
-    zIndex: 1,
-  },
-  toUnitContainer: {
-    flex: 3,
-    flexDirection: "column",
-    backgroundColor: "white",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    paddingHorizontal: 40,
-  },
-  buttonsContainer: {
-    flex: 2,
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center"
-  },
-  content: {
-    alignSelf: 'stretch',
-  },
-});
