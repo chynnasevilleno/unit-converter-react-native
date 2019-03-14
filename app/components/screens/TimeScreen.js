@@ -34,11 +34,10 @@ export default class TimeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <MenuButton navigation={this.props.navigation} />
-
         {/* Header View */}
         <View style={styles.header}>
-          <Text styles={styles.headerText}>Unit Conversion: Length</Text>
+          <Text styles={styles.headerText}>Unit Conversion: Time</Text>
+          <MenuButton navigation={this.props.navigation} />
         </View>
 
         {/* Conversion View */}

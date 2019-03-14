@@ -37,8 +37,6 @@ export default class MassScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        
-
           <View style={styles.header}>
             <Text styles={styles.headerText}>Unit Conversion: Mass </Text>
             <MenuButton navigation={this.props.navigation} />
