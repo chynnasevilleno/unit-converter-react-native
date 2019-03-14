@@ -37,10 +37,9 @@ export default class MassScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <MenuButton navigation={this.props.navigation} />
-
           <View style={styles.header}>
             <Text styles={styles.headerText}>Unit Conversion: Mass </Text>
+            <MenuButton navigation={this.props.navigation} />
           </View>
 
           {/* Conversion View */}
@@ -111,8 +110,6 @@ export default class MassScreen extends React.Component {
   }
 
   onCovertButtonClicked(){
-    alert("Successfully Converted"); // debugging
-
     fromMassUnit = this.state.fromMassUnitDropdown;
     fromMassUnitValue = this.state.fromMassUnitText;
     toMassUnit = this.state.toMassUnitDropdown;
@@ -182,6 +179,8 @@ export default class MassScreen extends React.Component {
     }
 
     this.setState({toMassUnitText: convertedValue});
+
+    alert("Successfully Converted"); // debugging
   }
 
   
